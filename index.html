@@ -1,0 +1,129 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Campus Navigation System</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header>
+  <div>
+    <small>APSH 2026</small>
+    <h1>Campus Navigation System</h1>
+    <p>Find the shortest route between campus locations.</p>
+  </div>
+  <span>Graph • BFS / Dijkstra</span>
+</header>
+
+<main>
+<section class="card controls">
+  <label>From
+    <select id="start">
+      <option>Main Gate</option>
+      <option>A Block</option>
+      <option>B Block</option>
+      <option>C Block</option>
+      <option>Canteen</option>
+      <option>Parking</option>
+      <option>Boys Hostel</option>
+      <option>Girls Hostel</option>
+      <option>Football & Running</option>
+      <option>Volleyball</option>
+      <option>Basketball</option>
+      <option>Cricket</option>
+    </select>
+  </label>
+
+  <div class="arrow">→</div>
+
+  <label>To
+    <select id="destination">
+      <option>A Block</option>
+      <option>Main Gate</option>
+      <option>B Block</option>
+      <option>C Block</option>
+      <option>Canteen</option>
+      <option>Parking</option>
+      <option>Boys Hostel</option>
+      <option>Girls Hostel</option>
+      <option>Football & Running</option>
+      <option>Volleyball</option>
+      <option>Basketball</option>
+      <option>Cricket</option>
+      <option>A Block 1st - CSD</option>
+      <option>A Block 2nd - AIML</option>
+      <option>A Block 3rd - CSE Core</option>
+      <option>B Block 5th - Auditorium</option>
+    </select>
+  </label>
+
+  <label>Algorithm
+    <select id="algorithm">
+      <option value="dijkstra">Dijkstra</option>
+      <option value="bfs">BFS</option>
+    </select>
+  </label>
+
+  <button id="findRoute">Find Shortest Route</button>
+</section>
+
+<section class="grid">
+  <div class="card">
+    <div class="heading">
+      <div><small>CAMPUS MAP</small><h2>Whole Campus</h2></div>
+      <b id="status">Ready</b>
+    </div>
+
+    <div class="campus-map">
+      <div class="road road-main"></div>
+      <div class="road road-bottom"></div>
+      <div class="road road-left"></div>
+      <div class="road road-right"></div>
+
+      <!-- TOP: SPORTS / HOSTEL AREA — positions follow the supplied hand-drawn map -->
+      <div class="place football">⚽<span>Football &amp;<br>Running</span></div>
+      <div class="place volleyball">🏐<span>Volleyball</span></div>
+      <div class="place basketball">🏀<span>Basketball</span></div>
+      <div class="place cricket">🏏<span>Cricket</span></div>
+      <div class="place boys-hostel">🏠<span>Boys Hostel</span></div>
+
+      <!-- MIDDLE -->
+      <div class="place parking">🅿️<span>Parking</span></div>
+      <div class="place girls-ground">🌳<span>Girls Ground</span></div>
+
+      <!-- BOTTOM: CANTEEN + BLOCKS + GIRLS HOSTEL -->
+      <div class="place canteen">🍴<span>Canteen</span></div>
+      <div class="place c-block">🏢<span>C Block</span></div>
+      <div class="place b-block">🏢<span>B Block</span></div>
+      <div class="place a-block">🏢<span>A Block</span></div>
+      <div class="place girls-hostel">🏠<span>Girls Hostel</span></div>
+
+      <!-- Main entrance is shown on the lower-left road, as in the sketch -->
+      <div class="gate">MAIN GATE</div>
+    </div>
+
+    <p class="note">
+      This map follows the layout in your supplied whole-campus sketch. Exact distances are assumed for the prototype.
+    </p>
+  </div>
+
+  <aside class="card result">
+    <small>ROUTE RESULT</small>
+    <h2>Shortest Route</h2>
+    <div id="result">
+      <strong>🧭</strong>
+      <p>Select a location and click <b>Find Shortest Route</b>.</p>
+    </div>
+    <div class="stats">
+      <div><small>Distance</small><b id="distance">—</b></div>
+      <div><small>Walking time</small><b id="time">—</b></div>
+    </div>
+  </aside>
+</section>
+</main>
+
+<footer>APSH 2026 • Campus Navigation System • Prototype</footer>
+<script src="script.js"></script>
+</body>
+</html>
